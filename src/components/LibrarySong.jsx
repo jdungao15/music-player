@@ -4,8 +4,7 @@ const LibrarySong = ({song, setCurrentSong, songs, id}) => {
    const {cover, name, artist} = song;
 
    const songSelectHandler = () => {
-      const selectedSong = songs.filter(state => state.id === id);
-      setCurrentSong(selectedSong[0]);
+      setCurrentSong(song);
    }
 
    return (

@@ -11,7 +11,6 @@ const Library = ({songs, setCurrentSong}) => {
                   songs={songs}
                   setCurrentSong={setCurrentSong}
                   song={song}
-                  id={song.id}
                />
             )}
          </div>

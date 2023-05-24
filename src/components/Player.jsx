@@ -8,17 +8,12 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import song from "./Song.jsx";
 
-const Player = ({currentSong, isPlaying, setIsPlaying}) => {
-   //State
-   const [songInfo, setSongInfo] = useState({
-      currentTime: 0,
-      duration: 0
-   });
+const Player = ({currentSong, isPlaying, setIsPlaying, audioRef,setSongInfo, songInfo} ) => {
    const {currentTime, duration} = songInfo;
 
 
-   const {audio} = currentSong;
-   const audioRef = useRef(null);
+
+
    const playIcon = isPlaying ? faPause : faPlay;
 
    //EVENT HANDLERS
@@ -37,11 +32,7 @@ const Player = ({currentSong, isPlaying, setIsPlaying}) => {
       setSongInfo({...songInfo, currentTime: e.target.value});
    };
 
-   const timeUpdateHandler = (e) => {
-      const current = e.target.currentTime;
-      const duration = e.target.duration;
-      setSongInfo({...song, currentTime: current, duration});
-   };
+
 
    const getTime = (t) => {
       return (
@@ -69,9 +60,7 @@ const Player = ({currentSong, isPlaying, setIsPlaying}) => {
             <FontAwesomeIcon className="skip-forward" size="2x"
                              icon={faAngleRight}/>
          </div>
-         <audio onLoadedMetadata={timeUpdateHandler}
-                onTimeUpdate={timeUpdateHandler} ref={audioRef}
-                src={audio}></audio>
+
       </div>
    );
 };

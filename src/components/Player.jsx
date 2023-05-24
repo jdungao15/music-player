@@ -8,7 +8,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import song from "./Song.jsx";
 
-const Player = ({currentSong, isPlaying, setIsPlaying, audioRef,setSongInfo, songInfo} ) => {
+const Player = ({currentSong, isPlaying, setIsPlaying, audioRef,setSongInfo, songInfo,songs, setCurrentSong} ) => {
    const {currentTime, duration} = songInfo;
 
    const playIcon = isPlaying ? faPause : faPlay;
@@ -35,6 +35,17 @@ const Player = ({currentSong, isPlaying, setIsPlaying, audioRef,setSongInfo, son
       );
    };
 
+   const skipTrackHandler = (direction) => {
+      let currentIndex = songs.findIndex(song => song.id === currentSong.id);
+
+      if(direction === 'skip-forward') {
+         setCurrentSong(songs[currentIndex + 1] || songs[0]);
+      }
+      if(direction === 'skip-back') {
+         setCurrentSong(songs[currentIndex -1] || songs[songs.length - 1]);
+      }
+   }
+
 
    return (
       <div className="player">
@@ -49,12 +60,23 @@ const Player = ({currentSong, isPlaying, setIsPlaying, audioRef,setSongInfo, son
             <p>{getTime(duration)}</p>
          </div>
          <div className="play-control">
-            <FontAwesomeIcon className="skip-back" size="2x"
-                             icon={faAngleLeft}/>
-            <FontAwesomeIcon onClick={playSongHandler} className="play"
-                             size="2x" icon={playIcon}/>
-            <FontAwesomeIcon className="skip-forward" size="2x"
-                             icon={faAngleRight}/>
+            <FontAwesomeIcon
+               className="skip-back"
+               size="2x"
+               icon={faAngleLeft}
+               onClick={()=> skipTrackHandler('skip-back')}
+            />
+            <FontAwesomeIcon
+               onClick={playSongHandler}
+               lassName="play"
+               size="2x" icon={playIcon}
+            />
+            <FontAwesomeIcon
+               className="skip-forward"
+               size="2x"
+               icon={faAngleRight}
+               onClick={()=> skipTrackHandler('skip-forward')}
+            />
          </div>
 
       </div>

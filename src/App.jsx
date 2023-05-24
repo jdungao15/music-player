@@ -5,8 +5,10 @@ import musicData from "./data/music-data.js";
 import React, {useRef, useState} from "react";
 import Library from "./components/Library.jsx";
 import song from "./components/Song.jsx";
+import Nav from "./components/Nav.jsx";
 
 function App() {
+   //State
    const [songs, setSongs] = useState(musicData);
    const [currentSong, setCurrentSong] = useState(songs[0]);
    const [isPlaying, setIsPlaying] = useState(false);
@@ -14,6 +16,7 @@ function App() {
       currentTime: 0,
       duration: 0
    });
+   const [libraryStatus, setLibraryStatus] = useState(false);
 
 
    const audioRef = useRef(null);
@@ -26,6 +29,7 @@ function App() {
 
    return (
       <div className="App">
+         <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus}/>
          <Song currentSong={currentSong}/>
          <Player
             audioRef={audioRef}
@@ -41,6 +45,7 @@ function App() {
             setCurrentSong={setCurrentSong}
             isPlaying={isPlaying}
             setSongs={setSongs}
+            libraryStatus={libraryStatus}
          />
          <audio
             onLoadedMetadata={timeUpdateHandler}

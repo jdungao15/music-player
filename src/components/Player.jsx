@@ -7,6 +7,7 @@ import {
    faPause
 } from '@fortawesome/free-solid-svg-icons';
 import song from "./Song.jsx";
+import playAudio from "../util.js";
 
 const Player = ({currentSong, isPlaying, setIsPlaying, audioRef,setSongInfo, songInfo,songs, setCurrentSong,setSongs} ) => {
    const {currentTime, duration} = songInfo;
@@ -62,6 +63,7 @@ const Player = ({currentSong, isPlaying, setIsPlaying, audioRef,setSongInfo, son
       if(direction === 'skip-back') {
          setCurrentSong(songs[currentIndex -1] || songs[songs.length - 1]);
       }
+      playAudio(isPlaying, audioRef)
    }
 
 
@@ -75,7 +77,7 @@ const Player = ({currentSong, isPlaying, setIsPlaying, audioRef,setSongInfo, son
                max={duration || 0 }
                value={currentTime}
                type="range"/>
-            <p>{getTime(duration)}</p>
+            <p>{songInfo.duration ? getTime(duration): '0:00'}</p>
          </div>
          <div className="play-control">
             <FontAwesomeIcon

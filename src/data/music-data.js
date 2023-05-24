@@ -16,7 +16,7 @@ function chillHop() {
         name:'NGAYON GABI',
          cover:'https://i1.sndcdn.com/artworks-000264783188-ljx5j5-t500x500.jpg',
          artist:'Al James',
-         color:['#1C171A','#1C1519'],
+         color:['#1C171A','#164E29'],
          id: uuidv4(),
          active: false,
          audio:'https://audio.jukehost.co.uk/6ure2RyoRnx0HwyRw94jOJOoU326este'

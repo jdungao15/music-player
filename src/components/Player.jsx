@@ -10,7 +10,8 @@ import song from "./Song.jsx";
 import playAudio from "../util.js";
 
 const Player = ({currentSong, isPlaying, setIsPlaying, audioRef,setSongInfo, songInfo,songs, setCurrentSong,setSongs} ) => {
-   const {currentTime, duration} = songInfo;
+   const {currentTime, duration, animationPercentage} = songInfo;
+   const {color} = currentSong;
 
    const playIcon = isPlaying ? faPause : faPlay;
 
@@ -65,19 +66,26 @@ const Player = ({currentSong, isPlaying, setIsPlaying, audioRef,setSongInfo, son
       }
       playAudio(isPlaying, audioRef)
    }
-
+   //Add the styles
+   const trackAnim = {
+      transform: `translateX(${animationPercentage}%)`
+   }
 
    return (
       <div className="player">
          <div className="time-control">
             <p>{getTime(currentTime)}</p>
-            <input
-               onChange={dragHandler}
-               min={0}
-               max={duration || 0 }
-               value={currentTime}
-               type="range"/>
-            <p>{songInfo.duration ? getTime(duration): '0:00'}</p>
+            <div style={{background: `linear-gradient(to right, ${color[0]}, ${color[1]}`}} className="track">
+               <input
+                  onChange={dragHandler}
+                  min={0}
+                  max={duration || 0 }
+                  value={currentTime}
+                  type="range"
+               />
+               <div style={trackAnim} className="animate-track"></div>
+            </div>
+            <p>{duration ? getTime(duration): '0:00'}</p>
          </div>
          <div className="play-control">
             <FontAwesomeIcon

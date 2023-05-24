@@ -16,7 +16,6 @@ function App() {
    });
 
 
-
    const audioRef = useRef(null);
 
    const timeUpdateHandler = (e) => {
@@ -36,14 +35,18 @@ function App() {
             songInfo={songInfo}
             currentSong={currentSong}
          />
-         <Library songs={songs}
-                  setCurrentSong={setCurrentSong}
+         <Library
+            audioRef={audioRef}
+            songs={songs}
+            setCurrentSong={setCurrentSong}
+            isPlaying={isPlaying}
+            setSongs={setSongs}
          />
          <audio
             onLoadedMetadata={timeUpdateHandler}
-                onTimeUpdate={timeUpdateHandler}
-                ref={audioRef}
-                src={currentSong.audio}
+            onTimeUpdate={timeUpdateHandler}
+            ref={audioRef}
+            src={currentSong.audio}
          >
 
          </audio>

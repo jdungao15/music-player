@@ -1,5 +1,4 @@
 import React from 'react';
-import playAudio from "../util.js";
 
 const LibrarySong = ({song, setCurrentSong, songs, id, audioRef, isPlaying, setSongs}) => {
    const {cover, name, artist, active} = song;

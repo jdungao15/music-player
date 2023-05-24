@@ -6,8 +6,6 @@ import {
    faAngleRight,
    faPause
 } from '@fortawesome/free-solid-svg-icons';
-import song from "./Song.jsx";
-import playAudio from "../util.js";
 
 const Player = ({currentSong, isPlaying, setIsPlaying, audioRef,setSongInfo, songInfo,songs, setCurrentSong,setSongs} ) => {
    const {currentTime, duration, animationPercentage} = songInfo;
@@ -55,16 +53,16 @@ const Player = ({currentSong, isPlaying, setIsPlaying, audioRef,setSongInfo, son
       );
    };
 
-   const skipTrackHandler = (direction) => {
+   const skipTrackHandler = async (direction) => {
       let currentIndex = songs.findIndex(song => song.id === currentSong.id);
 
       if(direction === 'skip-forward') {
-         setCurrentSong(songs[currentIndex + 1] || songs[0]);
+         await setCurrentSong(songs[currentIndex + 1] || songs[0]);
       }
       if(direction === 'skip-back') {
-         setCurrentSong(songs[currentIndex -1] || songs[songs.length - 1]);
+         await setCurrentSong(songs[currentIndex -1] || songs[songs.length - 1]);
       }
-      playAudio(isPlaying, audioRef)
+      if (isPlaying) audioRef.current.play();
    }
    //Add the styles
    const trackAnim = {

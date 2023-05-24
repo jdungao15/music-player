@@ -97,6 +97,61 @@ function chillHop() {
          id: uuidv4(),
          active: false,
          audio: 'https://audio.jukehost.co.uk/4HE6bgN3mre8DweKu9H3NkeXo6ILDh0F'
+      },
+      {
+         name:'Billie Eilish',
+         cover:'https://upload.wikimedia.org/wikipedia/en/3/3c/Armani_White_-_Billie_Eilish.png',
+         artist:'Armani White',
+         color:['#2D1F32','#3BCEE6'],
+         id: uuidv4(),
+         active: false,
+         audio:'https://audio.jukehost.co.uk/lrPF7IFwDFc529N9kH62aIxMU7mRcZxz'
+      },
+      {
+         name: 'GOATED',
+         cover: 'https://images.genius.com/3d13129cc733ac5ea97b0c357d36bce5.1000x1000x1.png',
+         artist: 'Armani White',
+         color: ['#14222D', '#703335'],
+         id: uuidv4(),
+         active: false,
+         audio: 'https://audio.jukehost.co.uk/sUPJ3ygxtRpx4TfdkchoST57OJEFriZh'
+      },
+      {
+         name: 'DIOR',
+         cover: 'https://cdns-images.dzcdn.net/images/cover/789cd725f925dc4dd973f0b6d0a5fa42/500x500.jpg',
+         artist: 'Pop Smoke Ft. Lil Tjay',
+         color: ['#1C2125', '#B0AEAF'],
+         id: uuidv4(),
+         active: false,
+         audio: 'https://audio.jukehost.co.uk/KW6dz56798pg6ZyNKJaQB1MsYAZXBWEE'
+      },
+      {
+         name: 'INVINCIBLE',
+         cover: 'https://cdns-images.dzcdn.net/images/cover/789cd725f925dc4dd973f0b6d0a5fa42/500x500.jpg',
+         artist: 'Pop Smoke',
+         color: ['#1C2125', '#B0AEAF'],
+         id: uuidv4(),
+         active: false,
+         audio: 'https://audio.jukehost.co.uk/lDtMDlq1ww8xlnp2M1e6q7oxgqx97y78'
+
+      },
+      {
+         name: 'MOOD SWINGS',
+         cover: 'https://cdns-images.dzcdn.net/images/cover/789cd725f925dc4dd973f0b6d0a5fa42/500x500.jpg',
+         artist: 'Pop Smoke Ft. Lil Tjay',
+         color: ['#1C2125', '#B0AEAF'],
+         id: uuidv4(),
+         active: false,
+         audio: 'https://audio.jukehost.co.uk/KW6dz56798pg6ZyNKJaQB1MsYAZXBWEE'
+      },
+      {
+         name: 'WELCOME TO THE PARTY',
+         cover:'https://i1.sndcdn.com/artworks-xtM3mASf4X52-0-t500x500.jpg',
+         artist: 'Pop Smoke',
+         color: ['#A6AFBE', '#1C2230'],
+         id: uuidv4(),
+         active: false,
+         audio: 'https://audio.jukehost.co.uk/qtn7PGfCIFNvHjruodIkirIcPI9hwaBz'
       }
 
 
